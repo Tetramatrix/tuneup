@@ -1,0 +1,6 @@
+#!/bin/sh
+sfdisk /dev/mmcblk1 << EOF
+0,224729,0b
+224730,,S
+EOF
+

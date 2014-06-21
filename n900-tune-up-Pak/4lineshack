@@ -1,0 +1,26 @@
+description "4 lines hack"
+
+console none
+
+start on MOUNTS_OK
+stop on stopping xomap
+
+script
+    mkdir -p /dev/cgroup/cpu
+    mount -t cgroup cgroup /dev/cgroup/cpu -o cpu,memory
+    mkdir -m 0777 /dev/cgroup/cpu/user
+    echo "/usr/local/sbin/cgroup_clean" > /dev/cgroup/cpu/release_agent
+    echo "555555" > /dev/cgroup/cpu/cpu.rt_runtime_us
+    echo "600000" > /dev/cgroup/cpu/cpu.rt_period_us
+    echo "555555" > /dev/cgroup/cpu/user/cpu.rt_runtime_us
+    echo "600000" > /dev/cgroup/cpu/user/cpu.rt_period_us
+    echo "1" > /dev/cgroup/cpu/desktop/notify_on_release
+    echo "1" > /dev/cgroup/cpu/applications/notify_on_release
+    echo "2048" > /dev/cgroup/cpu/cpu.shares
+    echo "1024" > /dev/cgroup/cpu/desktop/cpu.shares
+    echo "1024" > /dev/cgroup/cpu/applications/cpu.shares
+    echo "21M" > /dev/cgroup/cpu/desktop/memory.limit_in_bytes
+    echo "90M" > /dev/cgroup/cpu/user/memory.limit_in_bytes
+    initctl emit 4lineshack
+end script
+

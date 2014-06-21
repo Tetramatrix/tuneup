@@ -1,0 +1,3 @@
+user ALL = NOPASSWD: /opt/n900-tune-up/install.sh
+user ALL = NOPASSWD: /opt/n900-tune-up/swapinst.sh
+user ALL = NOPASSWD: /opt/n900-tune-up/deinstall.sh

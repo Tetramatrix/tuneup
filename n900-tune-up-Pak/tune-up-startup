@@ -1,0 +1,21 @@
+description "tune-up"
+author "chi hoang"
+
+console none
+
+start on started rcS-late
+#start on 4lineshack
+#start on MOUNTS_OK
+#start on started hal
+
+script
+
+sleep 20
+
+sh /opt/n900-tune-up/n900-tune-up/tune-up
+sh /opt/n900-tune-up/n900-tune-up/bad_packets
+sh /opt/n900-tune-up/n900-tune-up/htb
+sh /opt/n900-tune-up/n900-tune-up/tc
+sh /opt/n900-tune-up/n900-tune-up/cgroup&
+
+end script

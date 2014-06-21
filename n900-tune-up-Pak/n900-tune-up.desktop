@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0.0	Version of this file, NOT of the app. Keep it at 1.0.0
+Encoding=UTF-8
+Name=Tune-Up
+Comment=Tune-Up Performance Efficience Optimization Tune-Up Utilities.
+Exec=/opt/n900-tune-up/main
+Icon=n900-tune-up
+X-Icon-path=/usr/share/icons
+X-Window-Icon=n900-tune-up
+Type=Application
+X-Osso-Type=application/x-executable
+
+
